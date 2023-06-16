@@ -1,5 +1,10 @@
 import API from "../../utils/oceanapi";
 
+/**
+ * 转换日期（暂时失效）
+ * @param {*} dateString 
+ * @param {*} index 
+ */
 function formatDate(dateString, index) {
   const parts = dateString.split(' ')[0].split('-');
   const year = parseInt(parts[0], 10);
@@ -336,9 +341,7 @@ const page = {
    * 下拉回调
    */
   onPullDownRefresh() {
-    // 刷新当前天气
     this.refresh();
-    // 取消下拉
     wx.stopPullDownRefresh();
     wx.showToast({ title: '更新成功！', icon: 'none', duration: 1000 });
   },
@@ -356,7 +359,7 @@ const page = {
    * @param {*} event 
    */
   onSearchInputChanged(event) {
-    // 更新数据
+    /** 更新数据 */ 
     this.setData({
       inputContent: event.detail.value,
     });
@@ -366,11 +369,9 @@ const page = {
    * 搜索按钮点击回调
    */
   onSearchBtnClick() {
-    // 输入是否为空
+    /** 输入是否为空 */ 
     if (this.data.inputContent.length > 0) {
-      // 调用搜索函数
       this.searchForecastData(this.data.inputContent);
-      // 清空输入
       this.clearInputContent();
     } else {
       wx.showToast({ title: '请输入要查询的地址！', icon: 'none', duration: 1000 });

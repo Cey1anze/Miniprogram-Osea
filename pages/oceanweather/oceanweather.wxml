@@ -25,8 +25,10 @@
 		</view>
   </view>
 
+  <!-- 整体卡片 -->
   <view class="weather-card">
   <block  wx:for="{{list}}" wx:key="true">
+    <!-- 水文卡片 -->
     <view class="forecast-item" style="background-image: linear-gradient({{item.bg_color}});" data-index="{{index}}"   bindtap="toggleExpand">
       <!-- 未来天气预报 -->
       <view class="forecast-info">
@@ -35,9 +37,11 @@
           <text class="title-text">{{item.title}}</text>
         </view>
       </view>
+      <!-- 展开后的卡片 -->
       <view wx:if="{{item.expanded}}" class="expanded-content">
         <view class="title-expanded">{{item.title}}</view>
         <view class="forecastTime">{{item.forecastTime}}</view>
+        <!-- 数据部分 -->
         <view class="data-block">
           <view class="data-item">
             <text class="label">天文潮</text>
@@ -70,10 +74,9 @@
         </view>
       </view>
     </view>
+    <!-- 分隔 -->
     <view class="forecast-item-divider"></view>
   </block>
   </view>
-
-
 
 </view>

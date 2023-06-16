@@ -102,15 +102,15 @@
   overflow: auto;
   top: 80rpx;
   background-color: rgba(255, 255, 255, 0.959);
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 20rpx;
+  padding: 30rpx;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .forecast-item {
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
+  padding: 30rpx;
   cursor: pointer;
   border-radius: 10rpx;
 }
@@ -147,8 +147,8 @@
   position: relative;
   width: 55rpx;
   height: 60rpx;
-  top: 10rpx;
-  right: 20rpx;
+  top: 5rpx;
+  right: 10rpx;
 }
 
 .title-expanded {

@@ -5,16 +5,20 @@
     <view class="header-line"></view>
   </view>
 
+  <!-- 灾害卡片 -->
   <view class="cu-card">
+    <!-- 抬头 -->
     <view class="cu-item bg-img shadow-blur" style="background-image: linear-gradient({{item.bg_color}});" wx:for="{{list}}" wx:key="true">
       <view class="cardTitle" bindtap="toggleExpand" data-index="{{index}}">{{item.title}}</view>
       <view class="cardUpdatetime">{{item.up_time}}</view>
       <view class="{{item.expanded ? 'cu-list menu-avatar expanded' : 'cu-list menu-avatar'}}" style="{{item.expanded && item.expandable ? 'border-radius: 0rpx;' : 'border-bottom-right-radius: 25rpx;border-bottom-left-radius: 25rpx;'}}">
+        <!-- 下半标题 -->
         <view class="cu-item" bindtap="toggleExpand" data-index="{{index}}">
           <view class="cu-title">{{item.up_title}}</view>
           <image class="cu-avatar round lg" src="{{item.up_img}}"></image>
         </view>
       </view>
+      <!-- 展开内容 -->
       <view wx:if="{{item.expanded}}" class="expanded-content">
         <view class="content">{{item.content}}</view>
       </view>

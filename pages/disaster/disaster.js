@@ -15,8 +15,9 @@ const page = {
       up_time: '更新时间：',
       content: '',
       bg_color: "45deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 17%",
-      expanded: false, // 展开状态属性
-      expandable: true, // 是否可展开
+      expanded: false, 
+      /** 是否可展开 */
+      expandable: true,
     }, {
       title: "风暴潮警报",
       up_img: "../../images/oceaninfo/icons8-storm-100.png",
@@ -43,7 +44,7 @@ const page = {
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    //展示灾害数据
+    /** 展示灾害数据 */
     this.showDisaster();
   },
 
@@ -51,7 +52,7 @@ const page = {
    * 展示灾害数据
    */
   showDisaster() {
-    // 获取海浪数据
+    /** 获取海浪数据 */ 
     API.requestOceanWave({
       onSuccess: (res) =>{
         const data = res.data.data;
@@ -64,7 +65,7 @@ const page = {
           'list[0].up_time': '更新时间：' + updatetime,
           'list[0].content': content,
         });
-        //数据输出
+        /** 数据输出 */
         console.log(this.data.oceanwavedata)
       },
     });
@@ -80,7 +81,7 @@ const page = {
           'list[1].up_time': '更新时间：' + updatetime,
           'list[1].content': content,
         });
-        //数据输出
+
         console.log(this.data.stormdata)
       },
     });
@@ -90,7 +91,7 @@ const page = {
         this.setData({
           typhoondata: this.TyphoonData(data),
         });
-        //数据输出
+
         console.log(this.data.typhoondata)
       },
     });
@@ -103,15 +104,15 @@ const page = {
    */
   OceanWaveData(data){
     const info = {};
-    // 标题
+    /** 标题 */ 
     info.title = data.title;
-    // 警报等级
+    /** 警报等级 */ 
     info.warninglevel = data.warningLevel;
-    // 发布时间
+    /** 发布时间 */ 
     info.releasedate = data.releaseDate;
-    // 更新时间
+    /** 更新时间 */ 
     info.updatedate = data.updateDate;
-    // 内容
+    /** 内容 */ 
     info.content = data.content;
     return info;
   },
@@ -122,15 +123,10 @@ const page = {
    */
   StormData(data){
     const info = {};
-    // 标题
     info.title = data.title;
-    // 警报等级
     info.warninglevel = data.warningLevel;
-    // 发布时间
     info.releasedate = data.releaseDate;
-    // 更新时间
     info.updatedate = data.updateDate;
-    // 内容
     info.content = data.content;
 
     return info;
@@ -164,7 +160,7 @@ const page = {
     const list = this.data.list;
     const item = list[index];
   
-    // 如果卡片是可展开的，并且不是第三个卡片
+    /** 如果卡片是可展开的，并且不是第三个卡片 */ 
     if (item.expandable && index !== 2) {
       item.expanded = !item.expanded;
   
