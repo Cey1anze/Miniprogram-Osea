@@ -1,0 +1,24 @@
+<!--pages/disaster/disaster.wxml-->
+<view class="disaster">
+  <view class="header">
+    <title class="title">海洋灾害总览</title>
+    <view class="header-line"></view>
+  </view>
+
+  <view class="cu-card">
+    <view class="cu-item bg-img shadow-blur" style="background-image: linear-gradient({{item.bg_color}});" wx:for="{{list}}" wx:key="true">
+      <view class="cardTitle" bindtap="toggleExpand" data-index="{{index}}">{{item.title}}</view>
+      <view class="cardUpdatetime">{{item.up_time}}</view>
+      <view class="{{item.expanded ? 'cu-list menu-avatar expanded' : 'cu-list menu-avatar'}}" style="{{item.expanded && item.expandable ? 'border-radius: 0rpx;' : 'border-bottom-right-radius: 25rpx;border-bottom-left-radius: 25rpx;'}}">
+        <view class="cu-item" bindtap="toggleExpand" data-index="{{index}}">
+          <view class="cu-title">{{item.up_title}}</view>
+          <image class="cu-avatar round lg" src="{{item.up_img}}"></image>
+        </view>
+      </view>
+      <view wx:if="{{item.expanded}}" class="expanded-content">
+        <view class="content">{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

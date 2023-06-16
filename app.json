@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/weather/index",
+    "pages/disaster/disaster",
+    "pages/oceanweather/oceanweather",
+    "pages/environment/environment",
+    "pages/map/map"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#3d395a",
+    "navigationBarTitleText": "Osea",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于定位您当前所在的城市"
+    }
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "tabBar": {
+    "color": "#707070", 
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/weather/index",
+        "iconPath": "images/icons8-home-100.png",
+        "selectedIconPath": "images/icons8-home-100.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "iconPath": "images/icons8-map-100.png",
+        "selectedIconPath": "images/icons8-map-100.png",
+        "text": "实时地图"
+      }
+    ]
+},
+  "sitemapLocation": "sitemap.json"
+}

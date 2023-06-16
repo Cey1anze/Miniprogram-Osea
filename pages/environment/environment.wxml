@@ -1,0 +1,84 @@
+<!--pages/environment/environment.wxml-->
+<view class="environment">
+  <view class="header">
+    <title class="title">海洋气象数据</title>
+    <view class="header-line"></view>
+  </view>
+
+  <!-- 搜索 -->
+	<view class="search">
+		<!-- 输入框 -->
+		<view class="left">
+			<input class="inputField" confirm-type="search" bindinput="onSearchInputChanged"
+				bindconfirm="onSearchBtnClick" placeholder="请输入沿海地区地址(精确到区)" value="{{ inputContent }}" />
+			<!-- 清除按钮 -->
+			<image class="clearBtn" src="../../images/clear.png"
+				style="display: {{ inputContent.length > 0 ? 'block' : 'none' }}" bindtap="onClearBtnClick"></image>
+		</view>
+		<!-- 分割线 -->
+		<view class="separator"></view>
+		<!-- 搜索按钮 -->
+		<view class="right">
+			<view class="searchBtn" bindtap="onSearchBtnClick">
+				<image class="icon" src="../../images/search.png"></image>
+			</view>
+		</view>
+  </view>
+
+  <view class="weather-card">
+  <block  wx:for="{{list}}" wx:key="true">
+    <view class="forecast-item" style="background-image: linear-gradient({{item.bg_color}});" data-index="{{index}}" bindtap="toggleExpand">
+      <!-- 未来天气预报 -->
+      <view class="forecast-info">
+        <view wx:if="{{!item.expanded}}" class="title" data-name="{{item.date}}" src='{{item.img}}'>
+          <image wx:if="{{item.img}}" class="title-icon" src="{{item.img}}"></image>
+          <text class="title-text">{{item.date}}</text>
+        </view>
+      </view>
+      <view wx:if="{{item.expanded}}" class="expanded-content">
+        <view class="title-expanded">{{item.date}}</view>
+        <view class="forecastTime">{{formatDate(reportDate,index)}}</view>
+        <view class="data-block">
+          <view class="data-item">
+            <text class="label">最高海温</text>
+            <text class="value">{{item.max_sst}} ℃</text>
+          </view>
+          <view class="data-item">
+            <text class="label">最低海温</text>
+            <text class="value">{{item.min_sst}} ℃</text>
+          </view>
+          <view class="data-item">
+            <text class="label">最大海洋流速</text>
+            <text class="value">{{item.max_waterspeed}} cm/s</text>
+          </view>
+          <view class="data-item">
+            <text class="label">最小海洋流速</text>
+            <text class="value">{{item.min_waterspeed}} cm/s</text>
+          </view>
+          <view class="data-item">
+            <text class="label">最大浪高</text>
+            <text class="value">{{item.max_waveheight}} m</text>
+          </view>
+          <view class="data-item">
+            <text class="label">最小浪高</text>
+            <text class="value">{{item.min_waveheight}} m</text>
+          </view>
+          <view class="data-item">
+            <text class="label">最大风速</text>
+            <text class="value">{{item.max_windspeed}} cm/s</text>
+          </view>
+          <view class="data-item">
+            <text class="label">最小风速</text>
+            <text class="value">{{item.min_windspeed}} cm/s</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="forecast-item-divider"></view>
+  </block>
+  </view>
+
+
+
+</view>
+

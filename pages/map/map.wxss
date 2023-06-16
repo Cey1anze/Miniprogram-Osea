@@ -1,0 +1,86 @@
+/* pages/map/map.wxss */
+.map{
+  min-height: 96vh;
+  width: 94vw;
+  padding: 2vh 3vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: -webkit-linear-gradient(top, #3d395a, #435f6d);
+  color: white;
+}
+
+.map .url{
+  width: 668rpx; 
+  height: 244rpx; 
+  display: block; 
+  box-sizing: border-box; 
+  position: relative; 
+  border-radius: 20rpx;
+  box-shadow: 40rpx 40rpx 60rpx rgba(0, 0, 0, .05);
+  background: rgba(255, 255, 255, 0.9);
+	-webkit-backdrop-filter: blur(20px);
+	backdrop-filter: blur(20px);
+}
+
+.map .url .title{
+  width: 190rpx; 
+  height: 40rpx; 
+  display: grid; 
+  left: 0rpx; 
+  top: 20rpx; 
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  color: rgb(31 41 55);
+}
+
+.map .url .mapurl{
+  position: relative; 
+  left: 0rpx; 
+  top: 43rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: blue;
+  text-decoration: underline;
+}
+
+.map .url .tips{
+  width: 256rpx; 
+  height: 40rpx; 
+  display: block; 
+  box-sizing: border-box; 
+  position: relative; 
+  left: 100rpx; 
+  top: 90rpx;
+  font-size: 24rpx;
+  color: #3d395a;
+  text-align: center;
+}
+
+.map .button{
+  width: 195rpx; 
+  height: 85rpx; 
+  display: grid; 
+  left: 215rpx; 
+  top: -105rpx; 
+  padding: 20rpx;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  background-color: rgb(17 24 39);
+  font-weight: 500;
+  text-align: center;
+  border-radius: 0.5rem;
+  color: #fff;
+  border: none;
+  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map .button:hover {
+  background-color: rgb(55 65 81);
+}
+
+.map .button:focus {
+  outline: 4rpx solid transparent;
+  outline-offset: 4rpx;
+}

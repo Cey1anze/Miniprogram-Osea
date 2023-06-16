@@ -1,0 +1,79 @@
+<!--pages/oceanweather/oceanweather.wxml-->
+<view class="oceanweather">
+  <view class="header">
+    <title class="title">近岸海域水文数据</title>
+    <view class="header-line"></view>
+  </view>
+
+  <!-- 搜索 -->
+	<view class="search">
+		<!-- 输入框 -->
+		<view class="left">
+			<input class="inputField" confirm-type="search" bindinput="onSearchInputChanged"
+				bindconfirm="onSearchBtnClick" placeholder="请输入海域ID(E01~E85,N01~N77,S01~S51)" value="{{ inputContent }}" />
+			<!-- 清除按钮 -->
+			<image class="clearBtn" src="../../images/clear.png"
+				style="display: {{ inputContent.length > 0 ? 'block' : 'none' }}" bindtap="onClearBtnClick"></image>
+		</view>
+		<!-- 分割线 -->
+		<view class="separator"></view>
+		<!-- 搜索按钮 -->
+		<view class="right">
+			<view class="searchBtn" bindtap="onSearchBtnClick">
+				<image class="icon" src="../../images/search.png"></image>
+			</view>
+		</view>
+  </view>
+
+  <view class="weather-card">
+  <block  wx:for="{{list}}" wx:key="true">
+    <view class="forecast-item" style="background-image: linear-gradient({{item.bg_color}});" data-index="{{index}}"   bindtap="toggleExpand">
+      <!-- 未来天气预报 -->
+      <view class="forecast-info">
+        <view wx:if="{{!item.expanded}}" class="title" data-name="{{item.title}}" src='{{item.img}}'>
+          <image wx:if="{{item.img}}" class="title-icon" src="{{item.img}}"></image>
+          <text class="title-text">{{item.title}}</text>
+        </view>
+      </view>
+      <view wx:if="{{item.expanded}}" class="expanded-content">
+        <view class="title-expanded">{{item.title}}</view>
+        <view class="forecastTime">{{item.forecastTime}}</view>
+        <view class="data-block">
+          <view class="data-item">
+            <text class="label">天文潮</text>
+            <text class="value">{{item.astronomicalTide}} cm</text>
+          </view>
+          <view class="data-item">
+            <text class="label">周期</text>
+            <text class="value">{{item.period}} s</text>
+          </view>
+          <view class="data-item">
+            <text class="label">水位</text>
+            <text class="value">{{item.seaLevel}} cm</text>
+          </view>
+          <view class="data-item">
+            <text class="label">水温</text>
+            <text class="value">{{item.sst}} ℃</text>
+          </view>
+          <view class="data-item">
+            <text class="label">风暴潮</text>
+            <text class="value">{{item.surgeHeight}} cm</text>
+          </view>
+          <view class="data-item">
+            <text class="label">浪高</text>
+            <text class="value">{{item.waveHeight}} m</text>
+          </view>
+          <view class="data-item">
+            <text class="label">浪向角度</text>
+            <text class="value">{{item.waveDirection}} °</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="forecast-item-divider"></view>
+  </block>
+  </view>
+
+
+
+</view>

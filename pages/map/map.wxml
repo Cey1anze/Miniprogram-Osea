@@ -1,0 +1,9 @@
+<!--pages/map/map.wxml-->
+<view class="map">
+  <view class="url">
+    <view class="title">🔗链接</view>
+    <view class="mapurl" selectable="true">https://www.windy.com/?25.542,120.718,5</view>
+    <view class="tips">复制到浏览器中查看</view>
+  </view>
+  <button class="button" bindtap="onButtonclicked">点我复制</button>
+</view>
