@@ -85,7 +85,7 @@ git clone https://github.com/HYBBWuXiDiXi/Miniprogram-Osea.git
 
     2.在**基础信息**内复制**令牌(Token)** 填入 */utils/oceanapi.js* 里的 `token` 属性内：
 
-![](https://cdn.jsdelivr.net/gh/HYBBWuXiDiXi/Blog_Images@main/pic/202306161338792.png)
+![](https://cdn.jsdelivr.net/gh/HYBBWuXiDiXi/Blog_Images@main/pic/202306190918405.png)
 
 3. 另外还需要注意将 API 的域名添加到项目配置里的 **request 合法域名** 中，否则没有办法请求数据：
 
